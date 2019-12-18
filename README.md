@@ -2,7 +2,7 @@
 
 Super simple command line program that converts an image to braille and outputs it to the terminal or a file.
 
-Currently learning Go so i was trying to find something interesting to do. The code is pretty straight forward it was fun to code.
+Just started learning Go so i was trying to find something interesting to do. The code is pretty straight forward and it was fun to code.
 
 ## Compiling and running the program
 
@@ -19,10 +19,9 @@ Run it with --help to see all the available options:
 
 Usage of ./image2braille:
   -image string
-    	path to image file (default "cat.jpg")
+    	path to image file (*required)
   -threshold int
     	the color (0-255) threshold to convert a pixel to a dot (default 128)
-
 ```
 
 Just fyi you do need to play around with the threshold to figure out what works and what doesn't for some images. I found that although most recommend 128 which i did set as a default higher values such as 150-199 worked better.
