@@ -67,9 +67,9 @@ Originally Braille characters had 6 dots. The two lowest dots were added later t
 #######
 1 = *, 4 = *, 2 = *, 5 = *, 3 = -, 6 = -, 7 = *, 8 = -
 
-Braille Pattern:		      **-**-*-
-Dot Numbers available:        12345678
-Dots Raised:			      11011010
+Braille Pattern:        **-**-*-
+Dot Numbers available:  12345678
+Dots Raised:            11011010
 =================================
 Binary Value:			01011011 	(by reversing the order of the dots raised)
 Decimal (base 10): 		91
