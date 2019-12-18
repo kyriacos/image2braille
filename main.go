@@ -82,12 +82,18 @@ var pixelMap = [4][2]int{
 }
 
 var (
-	imageFile = flag.String("image", "cat.jpg", "path to image file")
+	imageFile = flag.String("image", "", "path to image file")
 	threshold = flag.Int("threshold", 128, "the color (0-255) threshold to convert a pixel to a dot")
 )
 
 func main() {
 	flag.Parse()
+
+	if *imageFile == "" {
+		flag.Usage()
+		os.Exit(1)
+	}
+
 	readImage()
 }
 
