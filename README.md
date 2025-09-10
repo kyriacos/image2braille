@@ -95,3 +95,12 @@ Anyway hope you enjoy using it.
 
 - Braille Patterns - https://en.wikipedia.org/wiki/Braille_Patterns
 - Braille Unicode Pixelation - https://blog.jverkamp.com/2014/05/30/braille-unicode-pixelation/
+
+---
+
+## Documentation
+
+- Start here: `docs/README.md`
+- CLI reference: `docs/cli.md`
+- Developer reference: `docs/developer-reference.md`
+- Examples: `docs/examples.md`

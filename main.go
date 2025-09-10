@@ -14,6 +14,10 @@ import (
 	_ "image/png"
 )
 
+// image2braille converts raster images into Unicode Braille art.
+// It samples the input image in 2x4 pixel blocks and emits a Braille
+// character per block based on a grayscale threshold.
+
 /*
    Braile Unicode codepoints (0x2800-0x28FF)
 
@@ -81,11 +85,15 @@ var pixelMap = [4][2]int{
 	{0x40, 0x80},
 }
 
+// CLI flags
 var (
+	// imageFile specifies the path to the input image to convert.
 	imageFile = flag.String("image", "", "path to image file (*required)")
+	// threshold controls the grayscale cutoff (0-255) for raised dots.
 	threshold = flag.Int("threshold", 128, "the color (0-255) threshold to convert a pixel to a dot")
 )
 
+// main parses CLI flags and triggers image conversion.
 func main() {
 	flag.Parse()
 
@@ -97,6 +105,8 @@ func main() {
 	readImage()
 }
 
+// readImage opens, decodes, and renders the input image to Braille characters,
+// writing the result to standard output.
 func readImage() {
 	reader, err := os.Open(*imageFile)
 	if err != nil {
@@ -122,6 +132,8 @@ func readImage() {
 	fmt.Println(str.String())
 }
 
+// getGrayPixel returns the 8-bit grayscale intensity for the pixel at (x, y)
+// using Go's color.GrayModel.
 func getGrayPixel(x, y int, img image.Image) uint8 {
 	p := img.At(x, y)
 
@@ -133,6 +145,8 @@ func getGrayPixel(x, y int, img image.Image) uint8 {
 	return uint8(r) // gray >> 8
 }
 
+// getChar returns the Unicode Braille character for the 2x4 pixel block whose
+// top-left corner is (imgx, imgy), using the current threshold.
 func getChar(imgx, imgy int, img image.Image) string {
 	val := 0
 	for y := 0; y < 4; y++ {
